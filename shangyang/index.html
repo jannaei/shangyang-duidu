@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>商鞅变法 · 三文本对读</title>
+<meta name="description" content="《史记·商君列传》《汉书·食货志》《资治通鉴》关于商鞅变法的三段原文并排对读。">
+<style>
+  :root{
+    --paper:#f4efe4;
+    --paper2:#fbf8f1;
+    --ink:#22201c;
+    --ink2:#4b463d;
+    --ink3:#7b7365;
+    --red:#9e3226;
+    --red-soft:#c25a4a;
+    --line:#d9cfbc;
+    --gold:#8a6c3c;
+    --hit:#f6e3a1;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 12% 8%, rgba(160,140,110,.10), transparent 42%),
+      radial-gradient(circle at 88% 92%, rgba(150,120,80,.10), transparent 46%),
+      var(--paper);
+    color:var(--ink);
+    font-family:"Songti SC","Source Han Serif SC","Noto Serif CJK SC",SimSun,"宋体",serif;
+    line-height:1.9;
+    font-size:17px;
+  }
+  .wrap{max-width:1240px;margin:0 auto;padding:56px 28px 72px;}
+
+  /* ---------- 头部 ---------- */
+  header{position:relative;padding-bottom:26px;border-bottom:2px solid var(--ink);}
+  .seal{
+    position:absolute;right:0;top:2px;
+    width:52px;height:52px;
+    border:2px solid var(--red);
+    color:var(--red);
+    display:flex;align-items:center;justify-content:center;
+    font-family:"Kaiti SC","KaiTi","楷体",serif;
+    font-size:16px;line-height:1.05;letter-spacing:1px;
+    writing-mode:vertical-rl;
+    border-radius:4px;
+    opacity:.9;
+  }
+  .kicker{
+    font-size:13px;letter-spacing:.28em;color:var(--ink3);
+    margin:0 0 14px;
+  }
+  h1{
+    font-family:"Kaiti SC","KaiTi","楷体",serif;
+    font-size:44px;line-height:1.2;margin:0 0 10px;letter-spacing:.06em;font-weight:600;
+  }
+  .sub{
+    font-size:18px;color:var(--ink2);margin:0 0 18px;
+  }
+  .sub em{font-style:normal;color:var(--red);}
+  .lede{
+    max-width:800px;margin:0;color:var(--ink2);font-size:15.5px;line-height:2;
+  }
+
+  /* ---------- 工具条 ---------- */
+  .toolbar{
+    display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+    margin:22px 0 0;font-size:14px;color:var(--ink3);
+  }
+  .toolbar button{
+    font-family:inherit;font-size:14px;
+    background:var(--paper2);color:var(--ink2);
+    border:1px solid var(--line);border-radius:999px;
+    padding:7px 16px;cursor:pointer;transition:.18s;
+  }
+  .toolbar button:hover{border-color:var(--gold);color:var(--ink);}
+  .toolbar button[aria-pressed="true"]{
+    background:var(--ink);color:#f8f4ea;border-color:var(--ink);
+  }
+  .hint{color:var(--ink3);}
+
+  mark.shared{
+    background:transparent;
+    color:inherit;
+    padding:0 .08em;
+    border-bottom:2px solid transparent;
+    transition:background .25s, border-color .25s;
+  }
+  body.marked mark.shared{
+    background:var(--hit);
+    border-bottom-color:var(--gold);
+  }
+
+  /* ---------- 三列 ---------- */
+  .cols{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:0;
+    margin-top:38px;
+    border-top:1px solid var(--line);
+  }
+  .col{
+    padding:30px 26px 34px;
+    border-right:1px solid var(--line);
+    display:flex;flex-direction:column;
+  }
+  .col:first-child{padding-left:0;}
+  .col:last-child{border-right:0;padding-right:0;}
+
+  .src h2{
+    font-family:"Kaiti SC","KaiTi","楷体",serif;
+    font-size:30px;margin:0;letter-spacing:.1em;font-weight:600;
+  }
+  .vol{
+    margin:2px 0 12px;font-size:13px;color:var(--ink3);letter-spacing:.04em;
+  }
+  .tag{
+    display:inline-block;
+    font-size:12.5px;letter-spacing:.06em;
+    color:var(--red);
+    border:1px solid var(--red-soft);
+    border-radius:3px;
+    padding:2px 9px;
+    margin-bottom:20px;
+  }
+
+  blockquote{
+    margin:0;
+    padding:2px 0 2px 16px;
+    border-left:2px solid var(--gold);
+    font-size:17px;
+    line-height:2.15;
+    color:var(--ink);
+  }
+  blockquote p{margin:0;}
+  blockquote.shorter{font-size:16px;color:var(--ink2);margin-top:14px;border-left-color:var(--line);}
+  .note{
+    font-size:13px;color:var(--ink3);margin:16px 0 6px;
+  }
+  .cut{color:var(--ink3);}
+
+  .qs{margin-top:auto;padding-top:26px;}
+  .qh{
+    font-size:12.5px;letter-spacing:.24em;color:var(--ink3);
+    margin:0 0 10px;padding-top:16px;border-top:1px dashed var(--line);
+  }
+  .qs ol{margin:0;padding-left:0;list-style:none;counter-reset:q;}
+  .qs li{
+    counter-increment:q;
+    position:relative;
+    padding-left:32px;
+    margin-bottom:14px;
+    font-size:14.5px;line-height:1.95;color:var(--ink2);
+  }
+  .qs li::before{
+    content:"Q" counter(q);
+    position:absolute;left:0;top:3px;
+    font-size:12px;letter-spacing:.06em;
+    color:var(--red);font-weight:600;
+    line-height:1.6;
+  }
+
+  /* ---------- 判断 ---------- */
+  .verdict{
+    margin-top:56px;
+    background:var(--ink);
+    color:#efe8da;
+    padding:44px 44px 40px;
+    position:relative;
+  }
+  .verdict::before{
+    content:"";position:absolute;left:0;top:0;width:100%;height:4px;
+    background:linear-gradient(90deg,var(--red) 0 22%,var(--gold) 22% 100%);
+  }
+  .verdict h2{
+    font-family:"Kaiti SC","KaiTi","楷体",serif;
+    font-size:30px;margin:0 0 6px;letter-spacing:.12em;font-weight:600;
+  }
+  .verdict .vsub{font-size:13px;color:#a89e8c;letter-spacing:.1em;margin:0 0 26px;}
+  .verdict ol{margin:0;padding:0;list-style:none;counter-reset:v;}
+  .verdict li{
+    counter-increment:v;
+    position:relative;padding-left:36px;margin-bottom:16px;
+    font-size:16px;line-height:2;color:#e8e0d1;
+  }
+  .verdict li::before{
+    content:counter(v);
+    position:absolute;left:0;top:6px;
+    width:22px;height:22px;border-radius:50%;
+    border:1px solid var(--gold);color:var(--gold);
+    font-size:12px;display:flex;align-items:center;justify-content:center;
+  }
+  .verdict b{color:#fff;font-weight:600;}
+  .open{
+    margin:26px 0 0;padding-top:20px;border-top:1px solid #3b372f;
+    font-size:14.5px;color:#b9b0a0;line-height:2;
+  }
+  .open strong{color:#e8e0d1;font-weight:600;}
+
+  /* ---------- 页脚 ---------- */
+  footer{
+    margin-top:44px;padding-top:22px;border-top:1px solid var(--line);
+    font-size:12.5px;color:var(--ink3);line-height:2;
+  }
+  footer p{margin:0 0 6px;}
+
+  /* ---------- 响应式 ---------- */
+  @media (max-width:980px){
+    .wrap{padding:34px 20px 56px;}
+    h1{font-size:34px;}
+    .sub{font-size:16px;}
+    .cols{grid-template-columns:1fr;border-top:0;}
+    .col{
+      padding:26px 0 30px;
+      border-right:0;border-top:1px solid var(--line);
+    }
+    .col:first-child{padding-left:0;}
+    .col:last-child{padding-right:0;}
+    .seal{width:44px;height:44px;font-size:14px;}
+    .verdict{padding:30px 22px;}
+    blockquote{font-size:16.5px;line-height:2.1;}
+    .qs{margin-top:0;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="seal">对读</div>
+    <p class="kicker">微型对读 · 三文本同屏</p>
+    <h1>商鞅变法</h1>
+    <p class="sub">同一件事，三种写法 —— <em>《史记》</em>《汉书》《资治通鉴》并读</p>
+    <p class="lede">
+      三段引文都指向公元前四世纪中叶秦国那场变法：废井田、开阡陌、重耕战、立什伍。
+      写它的三个人相隔一百六十年到四百年，说的是同一件事，记的却不是同一样东西。
+    </p>
+    <div class="toolbar">
+      <button id="toggleMark" aria-pressed="false">点亮两书重复的句子</button>
+      <span class="hint">《史记》与《资治通鉴》有一段几乎逐字相同的成效记述，点开看它们重合在哪里。</span>
+    </div>
+  </header>
+
+  <main class="cols">
+
+    <!-- 一 -->
+    <section class="col">
+      <div class="src">
+        <h2>史记</h2>
+        <p class="vol">《史记·商君列传》　西汉 · 司马迁</p>
+        <span class="tag">变法条文 · 十年成效 · 篇末评语</span>
+      </div>
+
+      <blockquote>
+        <p>令民为什伍，而相牧司连坐。不告奸者腰斩，告奸者与斩敌首同赏，匿奸者与降敌同罚。民有二男以上不分异者，倍其赋。有军功者，各以率受上爵；为私斗者，各以轻重被刑大小。僇力本业，耕织致粟帛多者复其身。<span class="cut">……</span><mark class="shared">行之十年，秦民大说，道不拾遗，山无盗贼，家给人足</mark>。民勇于公战，怯于私斗，乡邑大治。</p>
+      </blockquote>
+
+      <p class="note">同一篇的末尾，司马迁写下另一段话：</p>
+      <blockquote class="shorter">
+        <p>太史公曰：商君，其天资刻薄人也。<span class="cut">……</span>刑公子虔，欺魏将卬，不师赵良之言，亦足发明商君之少恩矣。<span class="cut">……</span>卒受恶名于秦，有以也夫！</p>
+      </blockquote>
+
+      <div class="qs">
+        <p class="qh">引导问题</p>
+        <ol>
+          <li>列传前半篇明写「道不拾遗，山无盗贼，家给人足」，篇末却断为「天资刻薄」。司马迁是在否定变法，还是在否定商鞅这个人？</li>
+          <li>太史公举出的三件事——因嬖臣景监进身、刑太子之傅公子虔、欺魏将卬——哪一件属于「法」、哪一件属于「人」？去掉后两件，「刻薄」这个判断还立得住吗？</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 二 -->
+    <section class="col">
+      <div class="src">
+        <h2>汉书</h2>
+        <p class="vol">《汉书·食货志上》　东汉 · 班固</p>
+        <span class="tag">制度后果 · 财富分配</span>
+      </div>
+
+      <blockquote>
+        <p>及秦孝公用商君，坏井田，开阡陌，急耕战之赏，虽非古道，犹以务本之故，倾邻国而雄诸侯。然王制遂灭，僭差亡度。庶人之富者累巨万，而贫者食糟糠；有国强者兼州域，而弱者丧社稷。至于始皇，遂并天下，内兴功作，外攘夷狄，收泰半之赋，发闾左之戍……海内愁怨，遂用溃畔。</p>
+      </blockquote>
+
+      <p class="note">《食货志》记账目、记赋税、记贫富。商鞅在这部书里，是一条财政线索的起点。</p>
+
+      <div class="qs">
+        <p class="qh">引导问题</p>
+        <ol>
+          <li>班固一句也没写「道不拾遗」那样的治理成效，只写「王制遂灭」「富者累巨万，贫者食糟糠」。他是在给商鞅定罪，还是在给「以功利立国」这条路记一笔总账？</li>
+          <li>「虽非古道，犹以务本之故，倾邻国而雄诸侯」——这半句先认下功劳，紧接着「然」字转向后果。这个转折如果删掉，班固的判断会变成什么样？他为什么要先把功劳说清楚？</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 三 -->
+    <section class="col">
+      <div class="src">
+        <h2>资治通鉴</h2>
+        <p class="vol">《资治通鉴》卷二 · 周纪二 · 显王十年　北宋 · 司马光</p>
+        <span class="tag">徙木立信 · 成效 · 臣光曰</span>
+      </div>
+
+      <blockquote>
+        <p>令既具，未布，恐民之不信，乃立三丈之木于国都市南门，募民有能徙置北门者予十金。民怪之，莫敢徙。复曰：「能徙者予五十金。」有一人徙之，辄予五十金。乃下令。<span class="cut">……</span><mark class="shared">行之十年，秦国道不拾遗，山无盗贼</mark>，民勇于公战，怯于私斗，乡邑大治。</p>
+      </blockquote>
+
+      <p class="note">紧接着是司马光自己的评论：</p>
+      <blockquote class="shorter">
+        <p>臣光曰：夫信者，人君之大宝也。国保于民，民保于信；非信无以使民，非民无以守国。<span class="cut">……</span>所利不能药其所伤，所获不能补其所亡，岂不哀哉！</p>
+      </blockquote>
+
+      <div class="qs">
+        <p class="qh">引导问题</p>
+        <ol>
+          <li>商鞅一生事迹那么多，司马光单选「徙木立信」来发议论。为什么是这一件？如果换成「刑公子虔」，他那句「信者，人君之大宝也」还讲得下去吗？</li>
+          <li>《通鉴》几乎不引变法条文本身，只留一个立木的故事和一句成效。一部写给皇帝看的史书，把「制度」换成「教训」，这是省略，还是取舍？</li>
+        </ol>
+      </div>
+    </section>
+
+  </main>
+
+  <section class="verdict">
+    <h2>我的判断</h2>
+    <p class="vsub">基于上面三段文本的对比，而非转述他人的结论</p>
+    <ol>
+      <li>三段写的都是变法，但三个人关心的根本不是同一件事：司马迁关心<b>这个人</b>，班固关心<b>这套制度最后把天下带到了哪里</b>，司马光关心<b>君主能从中学到什么</b>。</li>
+      <li>司马迁的「刻薄」不是对变法的判决。他亲手写下「道不拾遗」「家给人足」，随后批判的三件事——靠嬖臣进身、刑太子之傅、欺魏将卬——都落在「人」和「手段」上，没有一件落在「法」上。成效与评价之间的那道裂缝，正好卡在人与法的分界处。</li>
+      <li>班固把因果一直拉到秦亡。他不否认「倾邻国而雄诸侯」，但紧接着写「王制遂灭」「贫者食糟糠」，再写始皇的「收泰半之赋」「海内愁怨」。在他这里，商鞅的功劳和罪过不是两件事，是同一件事的两面：越有效，越危险。</li>
+      <li>司马光绕开了功过，只取一个「信」字。他删掉条文、留下立木，因为《资治通鉴》要给君主的是可操作的教训，不是制度史；他要证明的不是商鞅对不对，而是「不欺其民」有多要紧。</li>
+      <li>所以这三段对读真正读出来的，不是「商鞅究竟好不好」，而是三种史书各自的<b>选择</b>：写什么、略什么、把评语放在哪里、把因果拉多长。同一件事被写三遍，三次都不同——差异本身，就是史料。</li>
+    </ol>
+
+    <p class="open">
+      <strong>还没想清楚的三件事：</strong>
+      一、如果班固来写《商君列传》，「道不拾遗」这句他会不会留？二、《通鉴》对商鞅之死（车裂、灭家）的记述远比《史记》简省，这种简省是不是也在替「信」这个主题服务？三、三部书的读者不同——士人、朝廷财政官、皇帝——读者的位置，究竟能解释多少评价的差别？
+    </p>
+  </section>
+
+  <footer>
+    <p>引文出处：《史记》卷六十八《商君列传》；《汉书》卷二十四上《食货志上》；《资治通鉴》卷二《周纪二》显王十年。</p>
+    <p>文本依中华书局点校本录入，标点略有调整，省略处以「……」标出。三段引文均指向商鞅变法一事（公元前356年前后秦孝公任用卫鞅变法）。</p>
+    <p>单文件网页，无外部依赖、无追踪脚本。页面由 AI 辅助生成，三段引文与卷次经人工核对。</p>
+  </footer>
+
+</div>
+
+<script>
+  (function () {
+    var btn = document.getElementById('toggleMark');
+    var on = false;
+    btn.addEventListener('click', function () {
+      on = !on;
+      document.body.classList.toggle('marked', on);
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      btn.textContent = on ? '收起重复句提示' : '点亮两书重复的句子';
+    });
+  })();
+</script>
+</body>
+</html>
