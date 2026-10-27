@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>商鞅变法 · 三文本对读（简版）</title>
+<meta name="description" content="《史记》《汉书》《资治通鉴》记商鞅变法的三个不同位置：法条、后果、取信。">
+<style>
+  :root{
+    --ink:#111;
+    --ink2:#3a3a3a;
+    --ink3:#767676;
+    --line:#e2e2e2;
+    --line2:#111;
+    --bg:#fff;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",SimSun,sans-serif;
+    font-size:16px;line-height:1.9;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:56px 24px 64px;}
+
+  header{border-bottom:1px solid var(--line2);padding-bottom:22px;}
+  h1{font-size:27px;font-weight:600;margin:0 0 8px;letter-spacing:.02em;}
+  .sub{margin:0 0 14px;font-size:15px;color:var(--ink2);}
+  .lede{margin:0;font-size:14px;color:var(--ink3);line-height:1.95;max-width:760px;}
+
+  .cols{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+    margin-top:40px;
+  }
+  .col{padding:0 26px 0 0;border-right:1px solid var(--line);}
+  .col + .col{padding:0 26px;}
+  .col:last-child{border-right:0;padding-right:0;}
+
+  .src{border-top:2px solid var(--line2);padding-top:10px;margin-bottom:16px;}
+  .src h2{font-size:16px;font-weight:600;margin:0;letter-spacing:.04em;}
+  .src .vol{font-size:12.5px;color:var(--ink3);margin:3px 0 0;line-height:1.6;}
+
+  blockquote{
+    margin:0 0 6px;padding:0 0 0 14px;
+    border-left:1px solid var(--line2);
+    font-size:15.5px;line-height:2.05;color:var(--ink);
+  }
+  blockquote p{margin:0;}
+  .cut{color:var(--ink3);}
+  .cap{font-size:12.5px;color:var(--ink3);margin:12px 0 0;line-height:1.8;}
+
+  .qs{margin-top:24px;}
+  .qs .qh{
+    font-size:12px;letter-spacing:.14em;color:var(--ink3);
+    margin:0 0 8px;text-transform:uppercase;
+  }
+  .qs ol{margin:0;padding-left:0;list-style:none;}
+  .qs li{
+    position:relative;padding-left:24px;margin-bottom:12px;
+    font-size:13.5px;line-height:1.95;color:var(--ink2);
+  }
+  .qs li::before{
+    content:"Q" counter(q);
+    counter-increment:q;
+    position:absolute;left:0;top:0;
+    font-size:12px;color:var(--ink);font-weight:600;
+  }
+  .qs ol{counter-reset:q;}
+
+  .verdict{
+    margin-top:52px;padding-top:26px;border-top:1px solid var(--line2);
+  }
+  .verdict h2{font-size:20px;font-weight:600;margin:0 0 4px;}
+  .verdict .vsub{font-size:12.5px;color:var(--ink3);margin:0 0 20px;}
+  .verdict ol{margin:0;padding-left:0;list-style:none;counter-reset:v;}
+  .verdict li{
+    counter-increment:v;position:relative;padding-left:26px;
+    margin-bottom:12px;font-size:15px;line-height:2;color:var(--ink2);
+  }
+  .verdict li::before{
+    content:counter(v)".";
+    position:absolute;left:0;top:0;color:var(--ink);font-size:14px;
+  }
+  .verdict b{color:var(--ink);font-weight:600;}
+
+  .open{
+    margin:24px 0 0;padding:16px 18px;background:#fafafa;border-left:2px solid var(--line2);
+    font-size:13.5px;line-height:1.95;color:var(--ink2);
+  }
+  .open strong{color:var(--ink);font-weight:600;}
+
+  footer{
+    margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
+    font-size:12px;color:var(--ink3);line-height:1.9;
+  }
+  footer p{margin:0 0 4px;}
+
+  @media (max-width:900px){
+    .wrap{padding:32px 18px 48px;}
+    h1{font-size:22px;}
+    .cols{grid-template-columns:1fr;margin-top:28px;}
+    .col,.col + .col{padding:0;border-right:0;}
+    .col{border-top:1px solid var(--line);padding-top:22px;margin-top:22px;}
+    .col:first-child{border-top:0;margin-top:0;padding-top:0;}
+    blockquote{font-size:15px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>商鞅变法：一条法令的三个位置</h1>
+    <p class="sub">《史记·商君列传》　·　《汉书·食货志上》　·　《资治通鉴》卷二　对读</p>
+    <p class="lede">
+      三段引文记的都是同一场变法。但它们没有停在同一步：一段抄下法令本身，一段直接跳到后果，一段只留住推行前的那一次取信。
+      把三段并排，看到的不是三种评价，而是三个观察点。
+    </p>
+  </header>
+
+  <main class="cols">
+
+    <section class="col">
+      <div class="src">
+        <h2>《史记·商君列传》</h2>
+        <p class="vol">西汉 · 司马迁　｜　位置：写在法令上</p>
+      </div>
+      <blockquote>
+        <p>令民为什伍，而相牧司连坐。不告奸者腰斩，告奸者与斩敌首同赏，匿奸者与降敌同罚。民有二男以上不分异者，倍其赋。有军功者，各以率受上爵；为私斗者，各以轻重被刑大小。僇力本业，耕织致粟帛多者复其身。事末利及怠而贫者，举以为收孥。宗室非有军功论，不得为属籍。<span class="cut">……</span>有功者显荣，无功者虽富无所芬华。</p>
+      </blockquote>
+      <p class="cap">这是《商君列传》里唯一被整段抄下来的变法条文。</p>
+
+      <div class="qs">
+        <p class="qh">问题</p>
+        <ol>
+          <li>条文里赏与罚几乎一一对应：告奸与斩敌同赏，匿奸与降敌同罚。司马迁为什么不把它概括成「商鞅变法，秦以富强」，而要原样抄一遍？</li>
+          <li>通篇没有一句提到百姓愿不愿意。只读这一段，这场变法打算靠什么推行——说服，还是利害？</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="col">
+      <div class="src">
+        <h2>《汉书·食货志上》</h2>
+        <p class="vol">东汉 · 班固　｜　位置：写在总账上</p>
+      </div>
+      <blockquote>
+        <p>及秦孝公用商君，坏井田，开阡陌，急耕战之赏，虽非古道，犹以务本之故，倾邻国而雄诸侯。然王制遂灭，僭差亡度。庶人之富者累巨万，而贫者食糟糠；有国强者兼州域，而弱者丧社稷。</p>
+      </blockquote>
+      <p class="cap">《食货志》记田制、赋税、贫富。商鞅在这部书里，是一条财政线索的起点。</p>
+
+      <div class="qs">
+        <p class="qh">问题</p>
+        <ol>
+          <li>同一场变法，班固一个字的条文都没引，只留「坏井田」「王制遂灭」「贫者食糟糠」这些结果。一部记账目的书，为什么这样记账？</li>
+          <li>「虽非古道，犹以务本之故，倾邻国而雄诸侯」——他先承认秦国因此强大，紧接着写「然王制遂灭」。这个「然」字转掉的，是功劳，还是代价？</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="col">
+      <div class="src">
+        <h2>《资治通鉴》卷二</h2>
+        <p class="vol">北宋 · 司马光　｜　位置：写在取信上</p>
+      </div>
+      <blockquote>
+        <p>令既具，未布，恐民之不信，乃立三丈之木于国都市南门，募民有能徙置北门者予十金。民怪之，莫敢徙。复曰：「能徙者予五十金。」有一人徙之，辄予五十金。乃下令。</p>
+      </blockquote>
+      <p class="cap">周纪二 · 显王十年。三本书里，只有这里保留了「恐民之不信」五个字。</p>
+
+      <div class="qs">
+        <p class="qh">问题</p>
+        <ol>
+          <li>司马迁和班固都写到了变法，却都没有在这里停留。司马光为什么偏偏记下「恐民之不信」这一层？</li>
+          <li>立木这一回，法令一个字没改，变的只是百姓信不信。如果这是变法的第一步，它比条文本身更关键吗？（司马光的回答在后文「臣光曰」里，此处不引。）</li>
+        </ol>
+      </div>
+    </section>
+
+  </main>
+
+  <section class="verdict">
+    <h2>我的判断</h2>
+    <p class="vsub">基于上面三段文本的对比，不是转述别人的结论</p>
+    <ol>
+      <li>三段其实是同一条法令的三个位置：司马迁站在<b>写条文</b>的地方，班固站在<b>算总账</b>的地方，司马光站在<b>教君主</b>的地方。</li>
+      <li>司马迁抄条文，是让人看清这场变法有多硬——赏罚对得整整齐齐，没有一句商量。他几乎不下判断，把评价压到篇末「天资刻薄」两个字上。他不解释，只摆出来。</li>
+      <li>班固跳过条文，从「坏井田」直接跳到「贫者食糟糠」。他在意的不是法令怎么写，而是它把土地、赋税和人的处境改成了什么样。所以他的结论落在制度上，不落在人身上。</li>
+      <li>司马光只留立木。因为对读这部书的君主来说，条文是臣子的事，民信不信才是君主的事——他要给的是一句能用的道理，不是一部制度史。</li>
+      <li>所以三本书的差别不在史料多少，而在<b>各自站在哪一步回头看</b>。同一条法令放在三个位置上，就长成了三种东西。</li>
+    </ol>
+
+    <p class="open">
+      <strong>留给自己的问题：</strong>如果补上第四列，人会站在哪一步？变法推行十年之后，一个普通秦国农民会怎么记这件事——他有资格留下文字吗？还有一层我没想通：《汉书》不记这场辩论，是因为班固不关心，还是因为到了东汉，那场辩论已经没有现实意义了？
+    </p>
+  </section>
+
+  <footer>
+    <p>引文出处：《史记》卷六十八《商君列传》；《汉书》卷二十四上《食货志上》；《资治通鉴》卷二《周纪二》显王十年。依中华书局点校本录入，标点略有调整，省略处以「……」标出。</p>
+    <p>单文件网页，无外部依赖、无脚本。AI 辅助生成，引文与卷次经核对。</p>
+  </footer>
+
+</div>
+</body>
+</html>
